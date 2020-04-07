@@ -327,14 +327,14 @@ static NSString *const kMEVHorizontalContactsItemCell = @"itemCell";
         [self expandCellAtIndexPath:indexPath];
     } else {
         [self contractCell];
-    }
+    }*/
 
     // Select new cell, in case of deselecting then set -1 as default value
     _selectedIndex = _selectedIndex == indexPath.row ? -1 : indexPath.row;
 
     if ([_delegate respondsToSelector:@selector(contactSelectedAtIndex:)]) {
         return [_delegate contactSelectedAtIndex:indexPath.row];
-    }*/
+    }
 }
 
 - (void)itemSelected:(NSInteger)option atCellIndexPath:(NSIndexPath *)indexPath
