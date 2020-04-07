@@ -20,13 +20,14 @@ static NSString *const kMEVHorizontalContactsItemCell = @"itemCell";
 @interface MEVHorizontalContacts()  <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MEVHorizontalContactsCellDelegate, MEVHorizontalContactsCellDataSource, MEVHorizontalContactsLayoutDataSource>
 
 @property (nonatomic, strong) MEVHorizontalContactsLayout *layout;
-@property (nonatomic, strong) UICollectionView *horizontalContactListView;
 @property (nonatomic, assign) NSInteger selectedIndex;
 
 @end
 
 
 @implementation MEVHorizontalContacts
+
+@synthesize _horizontalContactListView;
 
 #pragma mark - View Life Cycle (private)
 
@@ -316,7 +317,7 @@ static NSString *const kMEVHorizontalContactsItemCell = @"itemCell";
 
 - (void)cellSelectedAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (_selectedIndex >= 0 && _selectedIndex != indexPath.row) {
+    /*if (_selectedIndex >= 0 && _selectedIndex != indexPath.row) {
         MEVHorizontalContactsCell *cell = (MEVHorizontalContactsCell *)[_horizontalContactListView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedIndex inSection:0]];
         cell.selected = NO;
         [cell hideMenuItemsAnimated:YES];
@@ -333,7 +334,7 @@ static NSString *const kMEVHorizontalContactsItemCell = @"itemCell";
 
     if ([_delegate respondsToSelector:@selector(contactSelectedAtIndex:)]) {
         return [_delegate contactSelectedAtIndex:indexPath.row];
-    }
+    }*/
 }
 
 - (void)itemSelected:(NSInteger)option atCellIndexPath:(NSIndexPath *)indexPath

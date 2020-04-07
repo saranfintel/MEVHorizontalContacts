@@ -121,7 +121,11 @@
  * @author Manuel Escrig Ventura
  *
  */
-@interface MEVHorizontalContacts : UIView
+@interface MEVHorizontalContacts : UIView {
+    UICollectionView *_horizontalContactListView;
+}
+
+@property (nonatomic, strong) UICollectionView *_horizontalContactListView;
 
 /** 
  * The horizontal contacts data source object. 
