@@ -14,6 +14,8 @@
 static float const kMEVHorizontalContactsDefaultShowAnimationTime = 0.12f;
 static float const kMEVHorizontalContactsDefaultHideAnimationTime = 0.03f;
 
+static float const ADJUSTED_WIDTH = 22.0;
+
 @interface MEVHorizontalContactsCell()
 
 @property (nonatomic, strong) NSMutableArray *items;
@@ -74,9 +76,10 @@ static float const kMEVHorizontalContactsDefaultHideAnimationTime = 0.03f;
 
     // Sizes
     float itemWidth = [self mev_horizontalContactsItemWidth];
-    _imageView.frame = CGRectMake(0, 0, itemWidth, itemWidth);
+    _imageView.frame = CGRectMake(ADJUSTED_WIDTH/2, ADJUSTED_WIDTH/4, itemWidth, itemWidth);
+    _imageView.layer.borderWidth = 0.0;
     _imageView.layer.cornerRadius = [self mev_horizontalContactsCornerRadious];
-    _label.frame = CGRectMake(0, itemWidth, itemWidth, _labelHeight);
+    _label.frame = CGRectMake(0, itemWidth + ADJUSTED_WIDTH/6 , itemWidth + ADJUSTED_WIDTH, _labelHeight);
 }
 
 
@@ -174,6 +177,7 @@ static float const kMEVHorizontalContactsDefaultHideAnimationTime = 0.03f;
             [cell.imageView setOpaque:YES];
             [cell.imageView setImage:[[cell.imageView image] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
             [cell.imageView setContentMode:UIViewContentModeCenter];
+            _imageView.layer.borderWidth = 0.0;
             [cell.imageView.layer setCornerRadius:[self mev_horizontalContactsCornerRadious]];
             [cell.imageView.layer setMasksToBounds:YES];
             [button addSubview:cell.imageView];

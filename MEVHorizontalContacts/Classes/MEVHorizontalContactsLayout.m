@@ -13,6 +13,8 @@
 
 #define RAND_FROM_TO(min, max) (min + arc4random_uniform(max - min + 1))
 
+static float const ADJUSTED_WIDTH = 22.0;
+
 @interface MEVHorizontalContactsLayout()
 {
     NSMutableDictionary *_layoutAttributes;
@@ -46,7 +48,7 @@
         for (int item = 0; item < numberOfItems; item++) {
             
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath]; 
+            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
             UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
 
             NSInteger items = 0;
@@ -56,7 +58,7 @@
 
             CGSize itemSize = CGSizeZero;
             itemSize.height = _itemHeight;
-            itemSize.width = _itemHeight - _labelHeight;
+            itemSize.width = _itemHeight - _labelHeight + ADJUSTED_WIDTH;
             if (cell.isSelected) {
                 
                 itemSize.width += (itemSize.width + _itemSpacing) * (items);
